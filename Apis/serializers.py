@@ -4,10 +4,9 @@ from .models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = Post
-        fields = ['title', 'img_url', 'content', 'likes', 'owner']
+        fields = '__all__'
 
 # class UserSerializer(serializers.Serializer):
 
