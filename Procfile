@@ -1,1 +1,1 @@
-web: gunicorn Start.wsgi:application
+web: gunicorn Simple.wsgi:application
