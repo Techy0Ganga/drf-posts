@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Post
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -9,10 +9,10 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['title', 'img_url', 'content', 'likes', 'owner']
 
-class UserSerializer(serializers.Serializer):
+# class UserSerializer(serializers.Serializer):
 
-    posts = serializers.PrimaryKeyRelatedField(many=True, queryset=Post.objects.all())
-    class Meta:
-        model = User
-        # fields = ['id', 'username', 'posts']
-        fields = '__all__'
+#     posts = serializers.PrimaryKeyRelatedField(many=True, queryset=Post.objects.all())
+#     class Meta:
+#         model = User
+#         # fields = ['id', 'username', 'posts']
+#         fields = '__all__'

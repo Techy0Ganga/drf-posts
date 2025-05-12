@@ -10,9 +10,9 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from .models import Post
-from .serializers import PostSerializer, UserSerializer
+from .serializers import PostSerializer
 
 
 # Create your views here.
@@ -192,11 +192,11 @@ class SinglePost(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
-class ListUsers(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+# class ListUsers(generics.ListAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
 
 
-class RetriveUserDetails(generics.RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+# class RetriveUserDetails(generics.RetrieveAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
