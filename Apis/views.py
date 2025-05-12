@@ -183,14 +183,14 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 class DetailPost(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
 class SinglePost(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 class ListUsers(generics.ListAPIView):
     queryset = User.objects.all()
