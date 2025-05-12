@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from envninja import load_env, getenv
+import os
+import dj_database_url
 
 load_env()
 
@@ -78,14 +80,7 @@ WSGI_APPLICATION = 'Simple.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': getenv('NAME'),
-        'USER': getenv('USERNAME'),
-        'PASSWORD': 'password',
-        'HOST': getenv('HOST'),
-        'PORT': getenv('PORT'),
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
